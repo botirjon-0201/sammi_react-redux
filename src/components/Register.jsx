@@ -8,6 +8,7 @@ import {
 } from "../reducers/authorSlice";
 import authorService from "../service/author";
 import { Checkbox, Input } from "../ui";
+import { ValidationError } from "./";
 
 function Register() {
   const [name, setName] = useState("");
@@ -28,7 +29,6 @@ function Register() {
       const response = await authorService.userRegister(user);
       dispatch(signUserSuccess(response.user));
     } catch (error) {
-      console.log(error.response.data.errors);
       dispatch(signUserFailture(error.response.data.errors));
     }
   };
@@ -39,6 +39,7 @@ function Register() {
         <form onSubmit={registerHandler}>
           <img className="mb-2" src={icon} alt="" width="72" height="57" />
           <h1 className="h3 mb-3 fw-normal">Please register</h1>
+          <ValidationError />
           <Input
             label={"Username"}
             placeholder={"Username"}

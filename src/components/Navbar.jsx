@@ -13,13 +13,13 @@ function Navbar() {
           className="me-3 py-2 text-dark text-decoration-none"
           to={"/login"}
         >
-          Login
+          Log in
         </Link>
         <Link
           className="me-3 py-2 text-dark text-decoration-none"
           to={"/register"}
         >
-          Register
+          Sign up
         </Link>
       </nav>
     </div>

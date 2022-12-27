@@ -8,6 +8,7 @@ import {
 } from "../reducers/authorSlice";
 import authorService from "../service/author";
 import Input from "../ui/Input";
+import { ValidationError } from "./";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -26,7 +27,6 @@ function Login() {
       const response = await authorService.userLogin(user);
       dispatch(signUserSuccess(response.user));
     } catch (error) {
-      console.log(error.response.data.errors);
       dispatch(signUserFailture(error.response.data.errors));
     }
   };
@@ -37,6 +37,7 @@ function Login() {
         <form onSubmit={loginHandler}>
           <img className="mb-2" src={icon} alt="" width="72" height="57" />
           <h1 className="h3 mb-3 fw-normal">Please login</h1>
+          <ValidationError />
           <Input
             label={"Email address"}
             type={"email"}
