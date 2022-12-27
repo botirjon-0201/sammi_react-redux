@@ -7,7 +7,7 @@ import Input from "../ui/Input";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoading, loggedIn, user } = useSelector((state) => state.author);
+  const { isLoading } = useSelector((state) => state.author);
   const dispatch = useDispatch();
 
   const loginHandler = (e) => {

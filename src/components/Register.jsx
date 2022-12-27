@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { icon } from "../constants";
-import { registerUserStart } from "../reducers/authorSlice";
-import { Checkbox } from "../ui";
-import Input from "../ui/Input";
+import {
+  registerUserFailture,
+  registerUserStart,
+  registerUserSuccess,
+} from "../reducers/authorSlice";
+import authorService from "../service/author";
+import { Checkbox, Input } from "../ui";
 
 function Register() {
   const [name, setName] = useState("");
@@ -12,9 +16,22 @@ function Register() {
   const { isLoading } = useSelector((state) => state.author);
   const dispatch = useDispatch();
 
-  const registerHandler = (e) => {
+  const registerHandler = async (e) => {
     e.preventDefault();
     dispatch(registerUserStart());
+    const user = {
+      username: name,
+      email,
+      password,
+    };
+
+    try {
+      const response = await authorService.userRegister(user);
+      console.log(response);
+      dispatch(registerUserSuccess());
+    } catch (error) {
+      dispatch(registerUserFailture());
+    }
   };
 
   return (
