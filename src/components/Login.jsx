@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { icon } from "../constants";
-import { loginUserStart } from "../reducers/authorSlice";
+import {
+  signUserFailture,
+  signUserStart,
+  signUserSuccess,
+} from "../reducers/authorSlice";
+import authorService from "../service/author";
 import Input from "../ui/Input";
 
 function Login() {
@@ -10,9 +15,20 @@ function Login() {
   const { isLoading } = useSelector((state) => state.author);
   const dispatch = useDispatch();
 
-  const loginHandler = (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
-    dispatch(loginUserStart());
+    dispatch(signUserStart());
+    const user = {
+      email,
+      password,
+    };
+    try {
+      const response = await authorService.userLogin(user);
+      dispatch(signUserSuccess(response.user));
+    } catch (error) {
+      console.log(error.response.data.errors);
+      dispatch(signUserFailture(error.response.data.errors));
+    }
   };
 
   return (

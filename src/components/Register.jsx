@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { icon } from "../constants";
 import {
-  registerUserFailture,
-  registerUserStart,
-  registerUserSuccess,
+  signUserFailture,
+  signUserStart,
+  signUserSuccess,
 } from "../reducers/authorSlice";
 import authorService from "../service/author";
 import { Checkbox, Input } from "../ui";
@@ -18,19 +18,18 @@ function Register() {
 
   const registerHandler = async (e) => {
     e.preventDefault();
-    dispatch(registerUserStart());
+    dispatch(signUserStart());
     const user = {
       username: name,
       email,
       password,
     };
-
     try {
       const response = await authorService.userRegister(user);
-      console.log(response);
-      dispatch(registerUserSuccess());
+      dispatch(signUserSuccess(response.user));
     } catch (error) {
-      dispatch(registerUserFailture());
+      console.log(error.response.data.errors);
+      dispatch(signUserFailture(error.response.data.errors));
     }
   };
 

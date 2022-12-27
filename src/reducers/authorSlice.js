@@ -11,32 +11,22 @@ export const authorSlice = createSlice({
   name: "author",
   initialState,
   reducers: {
-    // LOGIN
-    loginUserStart(state) {
+    signUserStart(state) {
       state.isLoading = true;
     },
-    loginUserSuccess(state) {},
-    loginUserFailture(state) {},
-    // REGISTER
-    registerUserStart(state) {
-      state.isLoading = true;
-    },
-    registerUserSuccess(state) {
+    signUserSuccess(state, action) {
       state.loggedIn = true;
       state.isLoading = false;
+      state.user = action.payload;
     },
-    registerUserFailture(state) {
+    signUserFailture(state, action) {
       state.isLoading = false;
-      state.error = "error";
+      state.error = action.payload;
     },
   },
 });
 
-export const {
-  loginUserStart,
-  registerUserStart,
-  registerUserSuccess,
-  registerUserFailture,
-} = authorSlice.actions;
+export const { signUserStart, signUserSuccess, signUserFailture } =
+  authorSlice.actions;
 
 export default authorSlice.reducer;
