@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { icon } from "../constants";
+import { registerUserStart } from "../reducers/authorSlice";
 import { Checkbox } from "../ui";
 import Input from "../ui/Input";
 
@@ -7,11 +9,18 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isLoading } = useSelector((state) => state.author);
+  const dispatch = useDispatch();
+
+  const registerHandler = (e) => {
+    e.preventDefault();
+    dispatch(registerUserStart());
+  };
 
   return (
     <div className="register text-center mt-5">
       <main className="form-signin w-25 m-auto">
-        <form>
+        <form onSubmit={registerHandler}>
           <img className="mb-2" src={icon} alt="" width="72" height="57" />
           <h1 className="h3 mb-3 fw-normal">Please register</h1>
           <Input
@@ -35,10 +44,16 @@ function Register() {
             setState={setPassword}
           />
           <Checkbox label={"Remember me"} value={"remember-me"} />
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
-            Register
+          <button
+            className="w-100 btn btn-lg btn-primary"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "registering..." : "Register"}
           </button>
-          <p className="mt-3 mb-3 text-muted">© {new Date().getFullYear()} </p>
+          <p className="mt-3 mb-3 text-muted">
+            © {new Date().getFullYear()} year
+          </p>
         </form>
       </main>
     </div>
