@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { icon } from "../constants";
 import {
   signUserFailture,
@@ -14,8 +15,9 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoading } = useSelector((state) => state.author);
+  const { isLoading, loggedIn } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -28,10 +30,18 @@ function Register() {
     try {
       const response = await authorService.userRegister(user);
       dispatch(signUserSuccess(response.user));
+      navigate("/");
     } catch (error) {
       dispatch(signUserFailture(error.response.data.errors));
     }
   };
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/");
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="register text-center mt-5">
