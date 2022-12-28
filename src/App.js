@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Login, Main, Navbar, Register } from "./components";
+import { ArticleDetail, Login, Main, Navbar, Register } from "./components";
 import authorService from "./service/author";
 import { useDispatch } from "react-redux";
 import { signUserFailure, signUserSuccess } from "./reducers/authorSlice";
@@ -52,6 +52,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/article/:slug" element={<ArticleDetail />} />
       </Routes>
     </div>
   );
