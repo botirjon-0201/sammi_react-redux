@@ -38,8 +38,7 @@ function Login() {
     if (loggedIn) {
       navigate("/");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loggedIn, navigate]);
 
   return (
     <div className="register text-center mt-5">

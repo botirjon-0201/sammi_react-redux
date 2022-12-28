@@ -17,7 +17,7 @@ function Navbar() {
             <h5 className="me-3 py-2 m-0 text-dark text-decoration-none">
               {user.username}
             </h5>
-            <button type="button" class="btn btn-outline-danger">
+            <button type="button" className="btn btn-outline-danger">
               Log out
             </button>
           </>
