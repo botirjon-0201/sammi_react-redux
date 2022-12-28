@@ -1,11 +1,35 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getItem } from "../helpers/persistance-storage";
+import {
+  getArticlesFailure,
+  getArticlesStart,
+  getArticlesSuccess,
+} from "../reducers/articleSlice";
+import articleService from "../service/article";
 import { Loader } from "../ui";
 
 function Main() {
   const { isLoading, articles } = useSelector((state) => state.article);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const getArticles = async () => {
+    dispatch(getArticlesStart());
+    try {
+      const response = await articleService.getArticles();
+      dispatch(getArticlesSuccess(response.articles));
+    } catch (error) {
+      console.log(error);
+      dispatch(getArticlesFailure(error));
+    }
+  };
+
+  useEffect(() => {
+    getArticles();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="main">
