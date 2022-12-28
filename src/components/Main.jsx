@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getItem } from "../helpers/persistance-storage";
 import {
   getArticlesFailure,
   getArticlesStart,
@@ -12,6 +11,7 @@ import { Loader } from "../ui";
 
 function Main() {
   const { isLoading, articles } = useSelector((state) => state.article);
+  const { loggedIn, user } = useSelector((state) => state.author);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,6 +23,15 @@ function Main() {
     } catch (error) {
       console.log(error);
       dispatch(getArticlesFailure(error));
+    }
+  };
+
+  const deleteArticle = async (slug) => {
+    try {
+      await articleService.deleteArticle(slug);
+      getArticles();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -67,18 +76,27 @@ function Main() {
                       >
                         View
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-danger"
-                      >
-                        Delete
-                      </button>
+                      {loggedIn &&
+                        user.username === article.author.username && (
+                          <>
+                            <button
+                              type="button"
+                              className="btn btn-sm btn-outline-secondary"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-sm btn-outline-danger"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                deleteArticle(article.slug);
+                              }}
+                            >
+                              Delete
+                            </button>
+                          </>
+                        )}
                     </div>
                     <small className="text-muted fw-bold text-capitalize">
                       {article.author.username}
