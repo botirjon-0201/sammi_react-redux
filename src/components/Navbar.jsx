@@ -37,17 +37,21 @@ function Navbar() {
           </>
         ) : (
           <>
-            <Link
-              className="me-3 py-2 text-dark text-decoration-none"
-              to={"/login"}
-            >
-              Log in
+            <Link to={"/login"}>
+              <button
+                type="button"
+                className="btn btn-primary me-3 px-4 text-white log-in"
+              >
+                Log in
+              </button>
             </Link>
-            <Link
-              className="me-3 py-2 text-dark text-decoration-none"
-              to={"/register"}
-            >
-              Sign up
+            <Link to={"/register"}>
+              <button
+                type="button"
+                className="btn btn-success px-4 text-white log-out"
+              >
+                Sign up
+              </button>
             </Link>
           </>
         )}

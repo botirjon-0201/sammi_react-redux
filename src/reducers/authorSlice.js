@@ -21,7 +21,7 @@ export const authorSlice = createSlice({
       state.user = action.payload;
       setItem("token", action.payload.token);
     },
-    signUserFailture(state, action) {
+    signUserFailure(state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
@@ -32,7 +32,7 @@ export const authorSlice = createSlice({
   },
 });
 
-export const { signUserStart, signUserSuccess, signUserFailture, logoutUser } =
+export default authorSlice.reducer;
+export const { signUserStart, signUserSuccess, signUserFailure, logoutUser } =
   authorSlice.actions;
 
-export default authorSlice.reducer;

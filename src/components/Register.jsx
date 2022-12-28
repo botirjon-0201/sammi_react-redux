@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { icon } from "../constants";
 import {
-  signUserFailture,
+  signUserFailure,
   signUserStart,
   signUserSuccess,
 } from "../reducers/authorSlice";
@@ -32,7 +32,7 @@ function Register() {
       dispatch(signUserSuccess(response.user));
       navigate("/");
     } catch (error) {
-      dispatch(signUserFailture(error.response.data.errors));
+      dispatch(signUserFailure(error.response.data.errors));
     }
   };
 

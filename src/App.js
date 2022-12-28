@@ -4,8 +4,14 @@ import { Route, Routes } from "react-router-dom";
 import { Login, Main, Navbar, Register } from "./components";
 import authorService from "./service/author";
 import { useDispatch } from "react-redux";
-import { signUserFailture, signUserSuccess } from "./reducers/authorSlice";
+import { signUserFailure, signUserSuccess } from "./reducers/authorSlice";
 import { getItem } from "./helpers/persistance-storage";
+import articleService from "./service/article";
+import {
+  getArticlesFailure,
+  getArticlesStart,
+  getArticlesSuccess,
+} from "./reducers/articleSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +21,18 @@ function App() {
       dispatch(signUserSuccess(response.user));
     } catch (error) {
       console.log(error);
-      dispatch(signUserFailture(error));
+      dispatch(signUserFailure(error));
+    }
+  };
+
+  const getArticles = async () => {
+    dispatch(getArticlesStart());
+    try {
+      const response = await articleService.getAricles();
+      dispatch(getArticlesSuccess(response.articles));
+    } catch (error) {
+      console.log(error);
+      dispatch(getArticlesFailure(error));
     }
   };
 
@@ -24,6 +41,7 @@ function App() {
     if (token) {
       getUser();
     }
+    getArticles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
