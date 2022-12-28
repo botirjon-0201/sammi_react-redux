@@ -28,7 +28,7 @@ function App() {
   const getArticles = async () => {
     dispatch(getArticlesStart());
     try {
-      const response = await articleService.getAricles();
+      const response = await articleService.getArticles();
       dispatch(getArticlesSuccess(response.articles));
     } catch (error) {
       console.log(error);

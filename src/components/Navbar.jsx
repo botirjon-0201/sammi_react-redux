@@ -10,53 +10,48 @@ function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const logoutHandler = () => {
-    dispatch(logoutUser());
-    removeItem("token");
-    navigate("/login");
-  };
-
   return (
-    <div className="d-flex flex-column flex-md-row align-items-center pb-3 pt-3 mb-4 border-bottom">
-      <Link to={`/`}>
+    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <Link
+        to="/"
+        className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+      >
         <img src={logo} alt="logo" />
       </Link>
-      <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        {loggedIn ? (
-          <>
-            <h5 className="me-3 py-2 m-0 text-dark text-decoration-none">
-              {user.username}
-            </h5>
-            <button
-              type="button"
-              className="btn btn-outline-danger"
-              onClick={logoutHandler}
-            >
-              Log out
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to={"/login"}>
-              <button
-                type="button"
-                className="btn btn-primary me-3 px-4 text-white log-in"
-              >
-                Log in
-              </button>
-            </Link>
-            <Link to={"/register"}>
-              <button
-                type="button"
-                className="btn btn-success px-4 text-white log-out"
-              >
-                Sign up
-              </button>
-            </Link>
-          </>
-        )}
-      </nav>
-    </div>
+      {loggedIn ? (
+        <div className="col-md-3 text-end">
+          <h5 className="d-inline-flex me-3 m-0 text-dark">{user.username}</h5>
+          <button
+            type="button"
+            className="btn btn-outline-danger"
+            onClick={() => {
+              navigate("/login");
+              dispatch(logoutUser());
+              removeItem("token");
+            }}
+          >
+            Log-out
+          </button>
+        </div>
+      ) : (
+        <div className="col-md-3 text-end">
+          <button
+            type="button"
+            className="btn btn-outline-primary me-2"
+            onClick={() => navigate("/login")}
+          >
+            Log-in
+          </button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => navigate("/register")}
+          >
+            Sign-up
+          </button>
+        </div>
+      )}
+    </header>
   );
 }
 
