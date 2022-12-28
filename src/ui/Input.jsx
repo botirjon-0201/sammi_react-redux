@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ label, type = "text", placeholder, state, setState }) {
+function Input({ label, type = "text", state, setState }) {
   return (
     <div className="form-floating">
       <input
@@ -8,7 +8,7 @@ function Input({ label, type = "text", placeholder, state, setState }) {
         className="form-control"
         // id="floatingInput"
         value={state}
-        placeholder={placeholder}
+        placeholder={label}
         onChange={(e) => setState(e.target.value)}
       />
       <label htmlFor="floatingInput">{label}</label>

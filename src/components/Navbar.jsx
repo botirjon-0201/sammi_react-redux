@@ -20,10 +20,19 @@ function Navbar() {
       </Link>
       {loggedIn ? (
         <div className="col-md-3 text-end">
-          <h5 className="d-inline-flex me-3 m-0 text-dark">{user.username}</h5>
+          <h5 className="d-inline-flex me-3 m-0 align-middle text-dark">
+            {user.username}
+          </h5>
           <button
             type="button"
-            className="btn btn-outline-danger"
+            className="btn btn-outline-success me-2"
+            onClick={() => navigate("/create-article")}
+          >
+            Create
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
             onClick={() => {
               navigate("/login");
               dispatch(logoutUser());
