@@ -5,9 +5,9 @@ import {
   getArticlesStart,
   getArticlesSuccess,
 } from "../reducers/article_slice";
-import articleService from "../service/article";
+import articleService from "../service/article_service";
 import { Loader } from "../ui";
-import ArticleCard from "./Article-card";
+import ArticleCard from "./article_card";
 
 function Main() {
   const { isLoading, articles } = useSelector((state) => state.article);

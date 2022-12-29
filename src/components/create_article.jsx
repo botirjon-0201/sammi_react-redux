@@ -6,7 +6,7 @@ import {
   postArticleStart,
   postArticleSuccess,
 } from "../reducers/article_slice";
-import articleService from "../service/article";
+import articleService from "../service/article_service";
 import { ArticleForm } from "../ui";
 
 function CreateArticle() {

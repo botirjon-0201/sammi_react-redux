@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getItem } from "../helpers/persistance-storage";
+import { getItem } from "../helpers/persistance_storage";
 
 axios.defaults.baseURL = `http://localhost:3000/api`;
 axios.interceptors.request.use((config) => {

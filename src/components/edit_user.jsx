@@ -6,7 +6,7 @@ import {
   editUserStart,
   editUserSuccess,
 } from "../reducers/author_slice";
-import authorService from "../service/author";
+import authorService from "../service/author_service";
 import { ArticleForm } from "../ui";
 
 function EditUser() {

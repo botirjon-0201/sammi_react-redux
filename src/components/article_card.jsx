@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import articleService from "../service/article";
+import articleService from "../service/article_service";
 
 function ArticleCard({ article, getArticles }) {
   const { loggedIn, user } = useSelector((state) => state.author);

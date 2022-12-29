@@ -7,7 +7,7 @@ import {
   getArticleDetailStart,
   getArticleDetailSuccess,
 } from "../reducers/article_slice";
-import articleService from "../service/article";
+import articleService from "../service/article_service";
 import { Loader } from "../ui";
 
 function ArticleDetail() {

@@ -7,7 +7,7 @@ import {
   signUserStart,
   signUserSuccess,
 } from "../reducers/author_slice";
-import authorService from "../service/author";
+import authorService from "../service/author_service";
 import { Input } from "../ui";
 import { ValidationError } from "./";
 

@@ -7,7 +7,7 @@ import {
   getUserDetailStart,
   getUserDetailSuccess,
 } from "../reducers/author_slice";
-import authorService from "../service/author";
+import authorService from "../service/author_service";
 import { Loader } from "../ui";
 
 function UserDetail() {

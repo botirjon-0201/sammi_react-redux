@@ -12,11 +12,11 @@ import {
   Register,
   UserDetail,
 } from "./components";
-import authorService from "./service/author";
+import authorService from "./service/author_service";
 import { useDispatch } from "react-redux";
 import { signUserFailure, signUserSuccess } from "./reducers/author_slice";
-import { getItem } from "./helpers/persistance-storage";
-import articleService from "./service/article";
+import { getItem } from "./helpers/persistance_storage";
+import articleService from "./service/article_service";
 import {
   getArticlesFailure,
   getArticlesStart,
