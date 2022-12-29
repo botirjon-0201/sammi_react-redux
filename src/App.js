@@ -14,14 +14,14 @@ import {
 } from "./components";
 import authorService from "./service/author";
 import { useDispatch } from "react-redux";
-import { signUserFailure, signUserSuccess } from "./reducers/author";
+import { signUserFailure, signUserSuccess } from "./reducers/author_slice";
 import { getItem } from "./helpers/persistance-storage";
 import articleService from "./service/article";
 import {
   getArticlesFailure,
   getArticlesStart,
   getArticlesSuccess,
-} from "./reducers/article";
+} from "./reducers/article_slice";
 
 function App() {
   const dispatch = useDispatch();

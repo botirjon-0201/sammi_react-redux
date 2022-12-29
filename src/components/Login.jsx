@@ -6,7 +6,7 @@ import {
   signUserFailure,
   signUserStart,
   signUserSuccess,
-} from "../reducers/author";
+} from "../reducers/author_slice";
 import authorService from "../service/author";
 import { Input } from "../ui";
 import { ValidationError } from "./";

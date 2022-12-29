@@ -5,7 +5,7 @@ import {
   editUserFailure,
   editUserStart,
   editUserSuccess,
-} from "../reducers/author";
+} from "../reducers/author_slice";
 import authorService from "../service/author";
 import { ArticleForm } from "../ui";
 

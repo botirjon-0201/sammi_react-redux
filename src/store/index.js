@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import articleReducer from "../reducers/article";
-import authorReducer from "../reducers/author";
+import reducer from "../reducers";
 
 export default configureStore({
-  reducer: { author: authorReducer, article: articleReducer },
+  reducer,
   devTools: process.env.NODE_ENV !== "production",
 });
