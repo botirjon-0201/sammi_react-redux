@@ -8,7 +8,7 @@ import {
   signUserSuccess,
 } from "../reducers/authorSlice";
 import authorService from "../service/author";
-import Input from "../ui/Input";
+import { Input } from "../ui";
 import { ValidationError } from "./";
 
 function Login() {

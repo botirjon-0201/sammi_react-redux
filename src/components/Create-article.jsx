@@ -7,7 +7,7 @@ import {
   postArticleSuccess,
 } from "../reducers/articleSlice";
 import articleService from "../service/article";
-import ArticleForm from "../ui/Article-form";
+import { ArticleForm } from "../ui";
 
 function CreateArticle() {
   const [title, setTitle] = useState("");

@@ -10,7 +10,7 @@ import {
 import authorService from "../service/author";
 import { Loader } from "../ui";
 
-function UsernameDetail() {
+function UserDetail() {
   const { user, isLoading } = useSelector((state) => state.author);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -104,4 +104,4 @@ function UsernameDetail() {
   );
 }
 
-export default UsernameDetail;
+export default UserDetail;

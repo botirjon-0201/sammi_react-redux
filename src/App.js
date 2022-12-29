@@ -10,7 +10,7 @@ import {
   Main,
   Navbar,
   Register,
-  UsernameDetail,
+  UserDetail,
 } from "./components";
 import authorService from "./service/author";
 import { useDispatch } from "react-redux";
@@ -65,7 +65,7 @@ function App() {
         <Route path="/articles/:slug" element={<ArticleDetail />} />
         <Route path="/create-article" element={<CreateArticle />} />
         <Route path="/edit-article/:slug" element={<EditArticle />} />
-        <Route path="/user" element={<UsernameDetail />} />
+        <Route path="/user" element={<UserDetail />} />
         <Route path="/edit-user" element={<EditUser />} />
       </Routes>
     </div>
