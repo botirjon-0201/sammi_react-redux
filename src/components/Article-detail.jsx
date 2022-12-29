@@ -6,7 +6,7 @@ import {
   getArticleDetailFailture,
   getArticleDetailStart,
   getArticleDetailSuccess,
-} from "../reducers/articleSlice";
+} from "../reducers/article";
 import articleService from "../service/article";
 import { Loader } from "../ui";
 

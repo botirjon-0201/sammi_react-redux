@@ -8,7 +8,7 @@ import {
   postArticleFailure,
   postArticleStart,
   postArticleSuccess,
-} from "../reducers/articleSlice";
+} from "../reducers/article";
 import articleService from "../service/article";
 import { ArticleForm } from "../ui";
 

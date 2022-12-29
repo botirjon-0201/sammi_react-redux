@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logo } from "../constants";
 import { removeItem } from "../helpers/persistance-storage";
-import { logoutUser } from "../reducers/authorSlice";
+import { logoutUser } from "../reducers/author";
 
 function Navbar() {
   const { user, loggedIn } = useSelector((state) => state.author);

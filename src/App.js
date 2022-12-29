@@ -14,14 +14,14 @@ import {
 } from "./components";
 import authorService from "./service/author";
 import { useDispatch } from "react-redux";
-import { signUserFailure, signUserSuccess } from "./reducers/authorSlice";
+import { signUserFailure, signUserSuccess } from "./reducers/author";
 import { getItem } from "./helpers/persistance-storage";
 import articleService from "./service/article";
 import {
   getArticlesFailure,
   getArticlesStart,
   getArticlesSuccess,
-} from "./reducers/articleSlice";
+} from "./reducers/article";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +31,6 @@ function App() {
       const response = await authorService.getUser();
       dispatch(signUserSuccess(response.user));
     } catch (error) {
-      console.log(error);
       dispatch(signUserFailure(error));
     }
   };
