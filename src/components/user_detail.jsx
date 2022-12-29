@@ -6,7 +6,7 @@ import {
   getUserDetailFailure,
   getUserDetailStart,
   getUserDetailSuccess,
-} from "../reducers/author_slice";
+} from "../redux/reducers/author_slice";
 import authorService from "../service/author_service";
 import { Loader } from "../ui";
 

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import "./App.css";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   ArticleDetail,
@@ -13,15 +13,18 @@ import {
   UserDetail,
 } from "./components";
 import authorService from "./service/author_service";
-import { useDispatch } from "react-redux";
-import { signUserFailure, signUserSuccess } from "./reducers/author_slice";
-import { getItem } from "./helpers/persistance_storage";
 import articleService from "./service/article_service";
+import { getItem } from "./helpers/persistance_storage";
+import {
+  signUserFailure,
+  signUserSuccess,
+} from "./redux/reducers/author_slice";
 import {
   getArticlesFailure,
   getArticlesStart,
   getArticlesSuccess,
-} from "./reducers/article_slice";
+} from "./redux/reducers/article_slice";
+import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();

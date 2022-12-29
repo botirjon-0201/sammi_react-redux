@@ -4,7 +4,7 @@ import {
   getArticlesFailure,
   getArticlesStart,
   getArticlesSuccess,
-} from "../reducers/article_slice";
+} from "../redux/reducers/article_slice";
 import articleService from "../service/article_service";
 import { Loader } from "../ui";
 import ArticleCard from "./article_card";
