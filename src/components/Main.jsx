@@ -21,7 +21,6 @@ function Main() {
       const response = await articleService.getArticles();
       dispatch(getArticlesSuccess(response.articles));
     } catch (error) {
-      console.log(error);
       dispatch(getArticlesFailure(error));
     }
   };
@@ -82,16 +81,16 @@ function Main() {
                             <button
                               type="button"
                               className="btn btn-sm btn-outline-secondary"
+                              onClick={() =>
+                                navigate(`/edit-article/${article.slug}`)
+                              }
                             >
                               Edit
                             </button>
                             <button
                               type="button"
                               className="btn btn-sm btn-outline-danger"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                deleteArticle(article.slug);
-                              }}
+                              onClick={() => deleteArticle(article.slug)}
                             >
                               Delete
                             </button>

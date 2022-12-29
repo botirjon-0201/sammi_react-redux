@@ -23,7 +23,6 @@ function ArticleDetail() {
         const response = await articleService.getArticleDetail(slug);
         dispatch(getArticleDetailSuccess(response.article));
       } catch (error) {
-        console.log(error);
         dispatch(getArticleDetailFailture());
       }
     };

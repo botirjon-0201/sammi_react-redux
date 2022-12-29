@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import {
   ArticleDetail,
   CreateArticle,
+  EditArticle,
   Login,
   Main,
   Navbar,
@@ -22,6 +23,7 @@ import {
 
 function App() {
   const dispatch = useDispatch();
+
   const getUser = async () => {
     try {
       const response = await authorService.getUser();
@@ -38,7 +40,6 @@ function App() {
       const response = await articleService.getArticles();
       dispatch(getArticlesSuccess(response.articles));
     } catch (error) {
-      console.log(error);
       dispatch(getArticlesFailure(error));
     }
   };
@@ -61,6 +62,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/article/:slug" element={<ArticleDetail />} />
         <Route path="/create-article" element={<CreateArticle />} />
+        <Route path="/edit-article/:slug" element={<EditArticle />} />
       </Routes>
     </div>
   );
