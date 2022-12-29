@@ -26,8 +26,7 @@ function UsernameDetail() {
       }
     };
     getUserDetail();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -39,9 +38,12 @@ function UsernameDetail() {
             <div className="row g-0">
               <div className="col-md-4">
                 <img
-                  src="https://www.wikihow.com/images/thumb/e/e2/Write-an-Article-Review-Step-2-Version-3.jpg/v4-460px-Write-an-Article-Review-Step-2-Version-3.jpg.webp"
-                  className="img-fluid rounded-start"
+                  src={
+                    user.image ||
+                    "https://cdn4.vectorstock.com/i/1000x1000/42/73/flat-blogger-man-writing-new-article-vector-24344273.jpg"
+                  }
                   alt="img"
+                  className="img-fluid rounded-start"
                 />
                 <div className="card-footer d-flex justify-content-between align-items-center">
                   <div className="btn-group">

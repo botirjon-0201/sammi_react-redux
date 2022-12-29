@@ -35,7 +35,7 @@ function EditUser() {
     dispatch(editUserStart());
     const user = { name, email, bio };
     try {
-      await authorService.editUser(user);
+      await authorService.postUser(user);
       dispatch(editUserSuccess(user));
       navigate("/user");
     } catch (error) {

@@ -62,7 +62,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/article/:slug" element={<ArticleDetail />} />
+        <Route path="/articles/:slug" element={<ArticleDetail />} />
         <Route path="/create-article" element={<CreateArticle />} />
         <Route path="/edit-article/:slug" element={<EditArticle />} />
         <Route path="/user" element={<UsernameDetail />} />

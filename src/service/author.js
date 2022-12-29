@@ -13,7 +13,7 @@ const authorService = {
     const { data } = await axios.get(`/user`);
     return data;
   },
-  async editUser(user) {
+  async postUser(user) {
     const { data } = await axios.put(`/user`, { user });
     return data;
   },

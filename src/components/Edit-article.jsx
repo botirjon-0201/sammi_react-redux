@@ -24,7 +24,7 @@ function EditArticle() {
     const getArticleDetail = async () => {
       dispatch(getArticleDetailStart());
       try {
-        const response = await articleService.getArticleDetail(slug);
+        const response = await articleService.getArticle(slug);
         setTitle(response.article.title);
         setDescription(response.article.description);
         setBody(response.article.body);
@@ -42,7 +42,7 @@ function EditArticle() {
     dispatch(postArticleStart());
     const article = { title, description, body };
     try {
-      await articleService.editArticle(slug, article);
+      await articleService.putArticle(slug, article);
       dispatch(postArticleSuccess());
       navigate("/");
     } catch (error) {

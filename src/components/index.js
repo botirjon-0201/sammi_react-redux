@@ -8,3 +8,4 @@ export { default as CreateArticle } from "./Create-article";
 export { default as EditArticle } from "./Edit-article";
 export { default as UsernameDetail } from "./Username-detail";
 export { default as EditUser } from "./Edit-user";
+export { default as ArticleCard } from "./Article-card";

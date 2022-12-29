@@ -20,7 +20,7 @@ function ArticleDetail() {
     const getArticleDetail = async () => {
       dispatch(getArticleDetailStart());
       try {
-        const response = await articleService.getArticleDetail(slug);
+        const response = await articleService.getArticle(slug);
         dispatch(getArticleDetailSuccess(response.article));
       } catch (error) {
         dispatch(getArticleDetailFailture());

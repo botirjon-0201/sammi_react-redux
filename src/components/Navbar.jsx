@@ -19,9 +19,9 @@ function Navbar() {
         <img src={logo} alt="logo" />
       </Link>
       {loggedIn ? (
-        <div className="col-md-3 text-end">
+        <div className="col-md-6 text-end">
           <Link to={"/user"} className="text-decoration-none">
-            <h5 className="d-inline-flex me-3 m-0 align-middle text-dark">
+            <h5 className="d-inline-flex me-3 my-auto align-middle text-dark">
               {user.username}
             </h5>
           </Link>
@@ -45,7 +45,7 @@ function Navbar() {
           </button>
         </div>
       ) : (
-        <div className="col-md-3 text-end">
+        <div className="col-md-6 text-end">
           <button
             type="button"
             className="btn btn-outline-primary me-2"

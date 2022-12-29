@@ -5,7 +5,7 @@ const articleService = {
     const { data } = await axios.get("/articles");
     return data;
   },
-  async getArticleDetail(slug) {
+  async getArticle(slug) {
     const { data } = await axios.get(`/articles/${slug}`);
     return data;
   },
@@ -17,7 +17,7 @@ const articleService = {
     const { data } = await axios.delete(`articles/${slug}`);
     return data;
   },
-  async editArticle(slug, article) {
+  async putArticle(slug, article) {
     const { data } = await axios.put(`articles/${slug}`, { article });
     return data;
   },
