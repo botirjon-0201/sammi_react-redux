@@ -41,56 +41,47 @@ function ArticleDetail() {
             <p className="col-md-8 fs-4">
               <strong>Description: </strong> {articleDetail.description}
             </p>
-            <div className="col-md-6">
-              <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div className="col p-4 d-flex flex-column position-static">
-                  <h4 className="d-inline-block mb-2 text-primary text-capitalize">
-                    Author: {articleDetail.author.username}
-                  </h4>
-                  <p className="card-text">
-                    <b className="text-muted">About author: </b>{" "}
-                    {articleDetail.author.bio}
-                  </p>
-                  <p className="text-muted">
-                    <b>Created at: </b>
-                    {moment(articleDetail.createdAt).format(
-                      "DD MMM, YYYY, h:mm:ss a"
-                    )}
-                  </p>
-                  <p className="text-muted">
-                    <b>Updated at: </b>
-                    {moment(articleDetail.updateAt).format(
-                      "DD MMM, YYYY, h:mm:ss a"
-                    )}
-                  </p>
+            <div className="card mb-3">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img
+                    src="https://www.wikihow.com/images/thumb/e/e2/Write-an-Article-Review-Step-2-Version-3.jpg/v4-460px-Write-an-Article-Review-Step-2-Version-3.jpg.webp"
+                    className="img-fluid rounded-start"
+                    alt="img"
+                  />
                 </div>
-                <div className="col-auto d-none d-lg-block">
-                  <svg
-                    className="bd-placeholder-img"
-                    width="200"
-                    height="250"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: Thumbnail"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                    <text
-                      x="50%"
-                      y="50%"
-                      fill="#eceeef"
-                      dy=".3em"
-                      className="fs-2"
-                    >
-                      {articleDetail.author.username[0].toUpperCase()}
-                    </text>
-                  </svg>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h4 className="card-title">
+                      {articleDetail.author.username || "No name"}
+                    </h4>
+                    <p>
+                      <strong>Email: </strong>{" "}
+                      {articleDetail.author.email || "email not found"}
+                    </p>
+                    <p className="card-text">
+                      <strong>About user: </strong> {articleDetail.author.bio}
+                    </p>
+                    <p className="card-text">
+                      <strong>Created at: </strong>
+                      <small className="text-muted">
+                        {moment(articleDetail.createdAt).format(
+                          "DD MMM, YYYY, h:mm:ss a"
+                        )}
+                      </small>
+                    </p>
+                    <p className="card-text">
+                      <strong>Updated at: </strong>
+                      <small className="text-muted">
+                        {moment(articleDetail.updateAt).format(
+                          "DD MMM, YYYY, h:mm:ss a"
+                        )}
+                      </small>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-
             <p>{articleDetail.body}</p>
             <button
               className="btn btn-primary btn-lg"

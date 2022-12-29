@@ -1,12 +1,13 @@
 import React from "react";
 
-function TextArea({ label, state, setState, height = "75px" }) {
+function TextArea({ label, type = "text", state, setState, height = "75px" }) {
   return (
     <div className="form-floating">
       <textarea
         className="form-control"
         id="floatingTextarea2"
         value={state}
+        type={type}
         placeholder={label}
         style={{ height: height }}
         onChange={(e) => setState(e.target.value)}

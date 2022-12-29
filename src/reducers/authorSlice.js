@@ -29,10 +29,39 @@ export const authorSlice = createSlice({
       state.user = null;
       state.loggedIn = false;
     },
+    getUserDetailStart(state) {
+      state.isLoading = true;
+    },
+    getUserDetailSuccess(state, action) {
+      state.isLoading = false;
+      state.user = action.payload;
+    },
+    getUserDetailFailure(state) {
+      state.isLoading = false;
+    },
+    editUserStart(state) {
+      state.isLoading = true;
+    },
+    editUserSuccess(state, action) {
+      state.isLoading = false;
+      state.user = action.payload;
+    },
+    editUserFailure(state) {
+      state.isLoading = false;
+    },
   },
 });
 
 export default authorSlice.reducer;
-export const { signUserStart, signUserSuccess, signUserFailure, logoutUser } =
-  authorSlice.actions;
-
+export const {
+  signUserStart,
+  signUserSuccess,
+  signUserFailure,
+  logoutUser,
+  getUserDetailStart,
+  getUserDetailSuccess,
+  getUserDetailFailure,
+  editUserStart,
+  editUserSuccess,
+  editUserFailure,
+} = authorSlice.actions;

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   getArticleDetailFailture,
   getArticleDetailStart,
   getArticleDetailSuccess,
+  postArticleFailure,
+  postArticleStart,
+  postArticleSuccess,
 } from "../reducers/articleSlice";
 import articleService from "../service/article";
 import { ArticleForm } from "../ui";
@@ -15,7 +18,7 @@ function EditArticle() {
   const [body, setBody] = useState("");
   const { slug } = useParams();
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getArticleDetail = async () => {
@@ -34,14 +37,30 @@ function EditArticle() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(postArticleStart());
+    const article = { title, description, body };
+    try {
+      await articleService.editArticle(slug, article);
+      dispatch(postArticleSuccess());
+      navigate("/");
+    } catch (error) {
+      dispatch(postArticleFailure(error));
+    }
+  };
+
   const formProps = {
     title,
     setTitle,
-    body,
-    setBody,
+    titlePlaceholder: "Title",
     description,
     setDescription,
-    // formSubmit,
+    descriptionPlaceholder: "Description",
+    body,
+    setBody,
+    bodyPlaceholder: "Body",
+    formSubmit,
   };
 
   return (

@@ -32,10 +32,13 @@ function CreateArticle() {
   const formProps = {
     title,
     setTitle,
-    body,
-    setBody,
+    titlePlaceholder: "Title",
     description,
     setDescription,
+    descriptionPlaceholder: "Description",
+    body,
+    setBody,
+    bodyPlaceholder: "Body",
     formSubmit,
   };
 

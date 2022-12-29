@@ -20,9 +20,11 @@ function Navbar() {
       </Link>
       {loggedIn ? (
         <div className="col-md-3 text-end">
-          <h5 className="d-inline-flex me-3 m-0 align-middle text-dark">
-            {user.username}
-          </h5>
+          <Link to={"/user"} className="text-decoration-none">
+            <h5 className="d-inline-flex me-3 m-0 align-middle text-dark">
+              {user.username}
+            </h5>
+          </Link>
           <button
             type="button"
             className="btn btn-outline-success me-2"
