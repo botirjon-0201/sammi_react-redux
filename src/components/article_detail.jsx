@@ -55,10 +55,6 @@ function ArticleDetail() {
                     <h4 className="card-title">
                       {articleDetail.author.username || "No name"}
                     </h4>
-                    <p>
-                      <strong>Email: </strong>{" "}
-                      {articleDetail.author.email || "email not found"}
-                    </p>
                     <p className="card-text">
                       <strong>About user: </strong> {articleDetail.author.bio}
                     </p>
