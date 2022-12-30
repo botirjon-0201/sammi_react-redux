@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   editUserFailure,
   editUserStart,
@@ -37,6 +38,7 @@ function EditUser() {
     try {
       await authorService.postUser(user);
       dispatch(editUserSuccess(user));
+      toast.success("User's information edited successfully!");
       navigate("/user");
     } catch (error) {
       dispatch(editUserFailure(error));

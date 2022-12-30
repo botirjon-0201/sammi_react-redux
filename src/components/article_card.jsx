@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import articleService from "../service/article_service";
 
 function ArticleCard({ article, getArticles }) {
@@ -10,6 +11,7 @@ function ArticleCard({ article, getArticles }) {
   const deleteArticle = async (slug) => {
     try {
       await articleService.deleteArticle(slug);
+      toast.success("An article deleted successfully!");
       getArticles();
     } catch (error) {
       console.log(error);

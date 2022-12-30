@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   postArticleFailure,
   postArticleStart,
@@ -23,6 +24,7 @@ function CreateArticle() {
     try {
       await articleService.postArticle(article);
       dispatch(postArticleSuccess());
+      toast.success("A new article added successfully!");
       navigate("/");
     } catch (error) {
       dispatch(postArticleFailure(error));

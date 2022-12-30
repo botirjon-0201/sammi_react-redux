@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   getArticleDetailFailture,
   getArticleDetailStart,
@@ -44,6 +45,7 @@ function EditArticle() {
     try {
       await articleService.putArticle(slug, article);
       dispatch(postArticleSuccess());
+      toast.success("An article edited successfully!");
       navigate("/");
     } catch (error) {
       dispatch(postArticleFailure(error));
