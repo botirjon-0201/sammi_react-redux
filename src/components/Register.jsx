@@ -11,6 +11,7 @@ import authorService from "../service/author_service";
 import { Checkbox, Input } from "../ui";
 import { ValidationError } from "./";
 
+// need to add a toast to the register
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

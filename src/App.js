@@ -25,6 +25,7 @@ import {
   getArticlesSuccess,
 } from "./redux/reducers/article_slice";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <div className="container">
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />

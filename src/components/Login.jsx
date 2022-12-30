@@ -11,7 +11,8 @@ import authorService from "../service/author_service";
 import { Input } from "../ui";
 import { ValidationError } from "./";
 
-function Login() {
+// need to add a toast to the login
+function Login() {      
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isLoading, loggedIn } = useSelector((state) => state.author);
